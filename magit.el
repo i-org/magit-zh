@@ -1700,47 +1700,49 @@ set before loading libary `magit'.")
 
 (easy-menu-define magit-mode-menu magit-mode-map
   "Magit menu"
-  '("【Magit】"
-    ["Refresh 刷新状态" magit-refresh t]
+  '("【Magit成果管理】"
+    ["刷新状态" magit-refresh t]
     ["Refresh all" magit-refresh-all t]
-    "---"
-    ("缓存（非必须）"
-    ["Stage 缓存" magit-stage-item t]
-    ["Stage all 缓存所有" magit-stage-all t]
-    ["Unstage 撤出缓存" magit-unstage-item t]
-    ["Unstage all 撤出所有缓存" magit-unstage-all t])
-    
-    ["Commit 保存提案" magit-key-mode-popup-committing t]
-    ["Add log entry 加提案说明" magit-commit-add-log t]
-    ["Tag 设置里程碑" magit-tag t]
-    "---"
-    ("Log 历史记录"
-     ["Diff working tree 两阶段对比" magit-diff-working-tree t]
-     ["Diff 长阶段对比" magit-diff t]
-     ["Short Log 短记录" magit-log t]
-     ["Long Log 详细记录" magit-log-long t]
-     ["Reflog" magit-reflog t]
-     ["Extended..." magit-key-mode-popup-logging t])
-    "---"
-    ("腾出手和追加"
-     ["Cherry pick" magit-cherry-pick-item t]
-     ["Apply" magit-apply-item t]
-     ["Revert 撤回" magit-revert-item t]
-     "---"
-     ["Discard 撤销改动" magit-discard-item t]
-     ["Reset head" magit-reset-head t]
-     ["Reset working tree" magit-reset-working-tree t]
-     ["Stash 暂时寄存" magit-stash t]
-     ["Snapshot 寄存快照" magit-stash-snapshot t])
     "---"
     ("文件管理范围"
      ["Ignore 忽略文件" magit-ignore-item t]
      ["Ignore locally" magit-ignore-item-locally t])
     "---"
-    ["Branch...切换分支" magit-checkout t]
-    ["Merge 合并分支" magit-merge t]
+    ("提案Stage（非必须）"
+     ["提案" magit-stage-item t]
+     ["提交所有" magit-stage-all t]
+     ["撤出提案" magit-unstage-item t]
+     ["撤出所有提案" magit-unstage-all t])
+    
+    ["Commit 立案" magit-key-mode-popup-committing t]
+    ["Add log entry 加立案说明" magit-commit-add-log t]
+    ("记号"
+     ["Tag 设新进度重点" magit-tag t]
+     "---"
+     ["设为开发起点... head" magit-reset-head t]
+     ["Reset working tree" magit-reset-working-tree t]
+     ["Stash 临时折返（缓存前一状态）" magit-stash t]
+     ["Snapshot 返回折返前快照" magit-stash-snapshot t]
+     ["Discard 放弃 stash" magit-discard-item t]
+     )
+    "---"
+    ("历史记录"
+     ["Diff working tree 两阶段对比" magit-diff-working-tree t]
+     ["Diff 阶段对比" magit-diff t]
+     ["Short Log 简短记录" magit-log t]
+     ["Long Log 详细记录" magit-log-long t]
+     ["Reflog 仓库历史" magit-reflog t]
+     ["Extended..." magit-key-mode-popup-logging t])
+    "---"
+    ("腾出手和追加"
+     ["Cherry pick" magit-cherry-pick-item t]
+     ["Apply" magit-apply-item t]
+     ["Revert 撤回" magit-revert-item t])
+    "---"
+    ["切换分支或节点..." magit-checkout t]
+    ["Merge 合并分支 汇流" magit-merge t]
     ["Interactive resolve" magit-interactive-resolve t]
-    ["Rebase 重整" magit-rebase-step t]
+    ["Rebase 同化消融重整" magit-rebase-step t]
     ("Rewrite"
      ["Start" magit-rewrite-start t]
      ["Stop" magit-rewrite-stop t]
@@ -1749,10 +1751,11 @@ set before loading libary `magit'.")
      ["Set used" magit-rewrite-set-used t]
      ["Set unused" magit-rewrite-set-unused t])
     "---"
-    ["Push 远程寄交提案" magit-push t]
-    ["Pull 远程覆盖本地" magit-pull t]
+    ["Push 远程寄交投递提案" magit-push t]
+    ["Pull 远程覆盖本地（破坏性）" magit-pull t]
+    ("Fectch 远程覆盖本地（未实现）")
     ["Remote update 远程更新" magit-remote-update t]
-    ("Submodule"
+    ("Submodule子模块"
      ["Submodule update" magit-submodule-update t]
      ["Submodule update and init" magit-submodule-update-init t]
      ["Submodule init" magit-submodule-init t]
@@ -1760,8 +1763,8 @@ set before loading libary `magit'.")
     "---"
     ("Extensions")
     "---"
-    ["Display Git output 显示输出信息" magit-process t]
-    ["Quit Magit退出" magit-mode-quit-window t]))
+    ["显示输出信息" magit-process t]
+    ["退出" magit-mode-quit-window t]))
 
 
 ;;; Utilities (1)

@@ -1,7 +1,5 @@
-[![Build Status](https://travis-ci.org/magit/magit.svg?branch=master)](https://travis-ci.org/magit/magit)
-[![Gittip](http://img.shields.io/gittip/magit.png)](https://www.gittip.com/magit)
 
-改为中文菜单，好像功能有点问题
+易码肆常用的版本管理工具，中文化了下，且调整了它乱七八糟的菜单。好像功能有点问题
 
 It's Magit!  An Emacs mode for Git
 ==================================
